@@ -73,6 +73,32 @@ form.example::after {
   <li><img src="logo7.png"
           width="245" 
      height="100" /></li>
+  <div id="clockbox"></div>
+
+<script type="text/javascript">
+var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+function GetClock(){
+var d=new Date();
+var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
+var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+
+if(nhour==0){ap=" AM";nhour=12;}
+else if(nhour<12){ap=" AM";}
+else if(nhour==12){ap=" PM";}
+else if(nhour>12){ap=" PM";nhour-=12;}
+
+if(nmin<=9) nmin="0"+nmin;
+if(nsec<=9) nsec="0"+nsec;
+
+var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+document.getElementById('clockbox').innerHTML=clocktext;
+}
+
+GetClock();
+setInterval(GetClock,1000);
+</script>
   <form name="searchform" onSubmit="return dosearch();">
 <input type="text" name="searchterms">
 <input type="submit" name="SearchSubmit" value="Search">
@@ -83,48 +109,7 @@ form.example::after {
     <input a name="sengines" type="radio" value="shopping.html#gsc.tab=0&gsc.q="> Shopping
     <input a name="sengines" type="radio" value="news.html#gsc.tab=0&gsc.q="> News
     <p><input a name="sengines" type="radio" value="seerkids.html#gsc.tab=0&gsc.q="> Seer™ Kids</p>
-    
-    
 </form>
-  <script>
-        (function(d, s, id) {
-            if (d.getElementById(id)) {
-                if (window.__TOMORROW__) {
-                    window.__TOMORROW__.renderWidget();
-                }
-                return;
-            }
-            const fjs = d.getElementsByTagName(s)[0];
-            const js = d.createElement(s);
-            js.id = id;
-            js.src = "https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js";
-
-            fjs.parentNode.insertBefore(js, fjs);
-        })(document, 'script', 'tomorrow-sdk');
-        </script>
-
-        <div class="tomorrow"
-           data-location-id="081399"
-           data-language="EN"
-           data-unit-system="METRIC"
-           data-skin="light"
-           data-widget-type="aqiMini"
-           style="padding-bottom:22px;position:relative;"
-        >
-          <a
-            href="https://www.tomorrow.io/weather/"
-            rel="nofollow noopener noreferrer"
-            target="_blank"
-            style="position: absolute; bottom: 0; transform: translateX(-50%); left: 50%;"
-          >
-            <img
-              alt="Powered by Tomorrow.io"
-              src="https://weather-website-client.tomorrow.io/img/powered-by-tomorrow.svg"
-              width="140"
-              height="15"
-            />
-          </a>
-        </div>
   
 </body>
 <footer>
