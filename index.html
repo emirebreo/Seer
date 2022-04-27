@@ -1,131 +1,89 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Seer</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>START</title>
+  <meta name="description" value="The search engine that doesn't track you. Learn More.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/colors.css">
+  <link rel="stylesheet" type="text/css" href="./css/modal.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>START</title>
+  <meta name="description" value="The search engine that doesn't track you. Learn More.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/colors.css">
+  <link rel="stylesheet" type="text/css" href="./css/modal.css">
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
+  <link rel="icon" type="image/png" href="./img/se.png">
+  <meta name="author" value="vanGato">
   <script type="text/javascript">
 function dosearch() {
 var sf=document.searchform;
-for (i=sf.sengines.length-1; i > -1; i--) {
-if (sf.sengines[i].checked) {
-var submitto = sf.sengines[i].value + escape(sf.searchterms.value);
-}
-}
+var submitto = sf.sengines.options[sf.sengines.selectedIndex].value + escape(sf.searchterms.value);
 window.location.href = submitto;
 return false;
 }
 </script>
 </head>
-  <style>
-    
-    body{
-     
-       max-width: 500px;
-  margin: auto;
-      align-content: center;
-      text-align: center;
-  padding-top: 100px;
-      width: 79%;
-    }
-* {
-  box-sizing: border-box;
-}
-
-/* Style the search field */
-input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: center;
-  width: 75%;
-  background: #f1f1f1;
-}
-
-/* Style the submit button */
-input[type=submit] {
-  float: right;
-  width: 25%;
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background: #0b7dda;
-}
-
-/* Clear floats */
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-  </style>
 <body>
-  <li><img src="logo7.png"
-          width="245" 
-     height="100" /></li>
-  <div id="clockbox"></div>
-
-<script type="text/javascript">
-var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
-
-function GetClock(){
-var d=new Date();
-var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
-var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
-
-if(nhour==0){ap=" AM";nhour=12;}
-else if(nhour<12){ap=" AM";}
-else if(nhour==12){ap=" PM";}
-else if(nhour>12){ap=" PM";nhour-=12;}
-
-if(nmin<=9) nmin="0"+nmin;
-if(nsec<=9) nsec="0"+nsec;
-
-var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
-document.getElementById('clockbox').innerHTML=clocktext;
-}
-
-GetClock();
-setInterval(GetClock,1000);
-</script>
-  <form name="searchform" onSubmit="return dosearch();">
+  <div class="index">
+    <section class="index__header">
+      <div class="index__logo"><img class="serp__logo" src="seer.png"
+          width="255" 
+     height="105"></img></div>
+      <div class="index__multisearch">
+        <form name="searchform" onSubmit="return dosearch();">
+Search:
+<select name="sengines">
+<option value="search.html#gsc.tab=0&gsc.q=" selected>Seer Search</option>
+<option value="searchkids.html#gsc.tab=0&gsc.q=">Seer Kids</option>
+</select>
+For:
 <input type="text" name="searchterms">
 <input type="submit" name="SearchSubmit" value="Search">
-    <input a name="sengines" type="radio" value="search.html#gsc.tab=0&gsc.q=" checked> Web
-<input a name="sengines" type="radio" value="videos.html#gsc.tab=0&gsc.q="> Videos
-<input a name="sengines" type="radio" value="images.html#gsc.tab=0&gsc.q="> Images
-<input a name="sengines" type="radio" value="wikifinder.html#gsc.tab=0&gsc.q="> Wiki Articles
-    <input a name="sengines" type="radio" value="shopping.html#gsc.tab=0&gsc.q="> Shopping
-    <input a name="sengines" type="radio" value="news.html#gsc.tab=0&gsc.q="> News
-    <p><input a name="sengines" type="radio" value="seerkids.html#gsc.tab=0&gsc.q="> Seer™ Kids</p>
 </form>
-  
-</body>
-<footer>
-       <font face="Arial" size="3px" color="#00000">© 2022 EbreoMedia :</font>
-<div id="google_translate_element"></div>
+      </div>
+    </section>
+    <footer class="index__footer">
+      <div class="index__bottom">
+        <ul class="index__links">
+          <div id="google_translate_element"></div>
 <script type="text/javascript">// <![CDATA[
 function googleTranslateElementInit() {
 new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 }
 // ]]></script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
-    <img src="ebreomedia.png"
+          <img src="ebreomedia.png"
           width="150" 
      height="16" />
-    <img src="logo7.png"
+    <img src="seer.png"
           width="55" 
      height="25" />
+        </ul>
+        <p class="index__copyright">&copy; 2022 EbreoMedia</p>
+      </div>
     </footer>
+  </div>
+  <!-- Modal -->
+  <div class="modal" id="about" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__header">
+        <h2>About</h2>
+        <a href="#" class="modal__close" aria-hidden="true">×</a>
+      </div>
+      <div class="modal__body">
+        <strong>Lorem Ipsum</strong><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="modal__footer">
+        <p>Last Update 01.01.2019</p>
+      </div>
+    </div>
+  </div>
+  <!-- /Modal -->
+</body>
 </html>
