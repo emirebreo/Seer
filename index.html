@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Seer</title>
+  <meta name="description" value="The search engine owned by EbreoMedia">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/colors.css">
+  <link rel="stylesheet" type="text/css" href="./css/modal.css">
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
+  <link rel="icon" type="image/png" href="./img/se.png">
+  <meta name="author" value="vanGato">
+  <script type="text/javascript">
+function dosearch() {
+var sf=document.searchform;
+var submitto = sf.sengines.options[sf.sengines.selectedIndex].value + escape(sf.searchterms.value);
+window.location.href = submitto;
+return false;
+}
+</script>
+</head>
+<body>
+  <div class="index">
+    <section class="index__header">
+      <div class="index__logo"><img class="serp__logo" src="seer.png"
+          width="255" 
+     height="105"></img></div>
+      <div class="index__multisearch">
+        <form name="searchform" onSubmit="return dosearch();">
+Search:
+<select name="sengines">
+<option value="search.html#gsc.tab=0&gsc.q=" selected>Seer Search</option>
+<option value="searchkids.html#gsc.tab=0&gsc.q=">Seer Kids</option>
+</select>
+For:
+<input type="text" name="searchterms">
+<input type="submit" name="SearchSubmit" value="Search">
+</form>
+      </div>
+    </section>
+    <footer class="index__footer">
+      <div class="index__bottom">
+        <ul class="index__links">
+          <div id="google_translate_element"></div>
+<script type="text/javascript">// <![CDATA[
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+// ]]></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+          <img src="ebreomedia.png"
+          width="150" 
+     height="16" />
+    <img src="seer.png"
+          width="55" 
+     height="25" />
+        </ul>
+        <p class="index__copyright">&copy; 2022 EbreoMedia</p>
+      </div>
+    </footer>
+  </div>
+  <!-- Modal -->
+  <div class="modal" id="about" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__header">
+      </div>
+      <div class="modal__footer">
+        <p>Last Update 01.01.2019</p>
+      </div>
+    </div>
+  </div>
+  <!-- /Modal -->
+</body>
+</html>
